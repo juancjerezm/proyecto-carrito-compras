@@ -24,7 +24,7 @@ export const Card = ({
 
   return (
     <div className="tarjeta">
-      <img srec={imagen} alt={titulo} className="tarjeta-imagen" />
+      <img src={imagen} alt={titulo} className="tarjeta-imagen" />
       <div className="tarjeta-contenido">
         <h2 className="tarjeta-titulo">{titulo}</h2>
         <p className="tarjeta-descripcion">{descripcion}</p>

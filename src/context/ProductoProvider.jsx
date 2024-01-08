@@ -10,7 +10,8 @@ export const ProductoProvider = ({ children }) => {
   const fetchProductos = async () => {
     try {
       const response = await fetch(urlBase);
-      const data = response.json();
+      const data = await response.json();
+
       setProductos(data);
     } catch (error) {
       console.error("Error al traer los productos: ", error);

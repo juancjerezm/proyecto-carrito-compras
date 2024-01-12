@@ -9,7 +9,7 @@ export const ComprasPage = () => {
     useContext(CarritoContext);
 
   const handleAgregar = (compra) => {
-    agregarCompra({ ...compra });
+    agregarCompra(compra);
   };
 
   const handleQuitar = (id) => {
@@ -20,18 +20,20 @@ export const ComprasPage = () => {
     <>
       <h1>Mi carrito de compras</h1>
       <div className="tarjeta-contenido">
-        {productos && productos.map((producto) => {
-          return (
-            <Card
-              key={producto.id}
-              imagen={producto.image}
-              titulo={producto.title}
-              precio={producto.price}
-              handleAgregar={() => handleAgregar(producto)}
-              handleQuitar={() => handleQuitar(producto.id)}
-            ></Card>
-          );
-        })}
+        {
+          productos.map((producto) => {
+            return (
+              <Card 
+                key={producto.id}
+                imagen={producto.image}
+                titulo={producto.title}
+                descripcion={producto.description}
+                precio={producto.price}
+                handleAgregar={() => handleAgregar(producto)}
+                handleQuitar={() => handleQuitar(producto.id)}
+              ></Card>
+            );
+          })}
       </div>
     </>
   );

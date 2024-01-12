@@ -1,12 +1,13 @@
 import { useReducer } from "react";
 import { CarritoContext } from "./CarritoContext";
 import * as carritoActions from "./carritoActions";
-import { comprasReducer, initialState } from "./carritoReducer";
+import { comprasReducer } from "./carritoReducer";
 
 export const CarritoProvider = ({ children }) => {
   const { agregarCompra, aumentarCompra, disminuirCompra, eliminarCompra } =
     carritoActions;
 
+  const initialState = [];
   const [stateListaCompras, dispatch] = useReducer(
     comprasReducer,
     initialState

@@ -4,6 +4,7 @@ export const agregarCompra = (compra) => {
     type: "AGREGAR_COMPRA",
     payload: compra,
   };
+  return action
 };
 
 export const aumentarCompra = (id) => {
@@ -11,6 +12,7 @@ export const aumentarCompra = (id) => {
     type: "AUMENTAR_CANTIDAD",
     payload: id,
   };
+  return action
 };
 
 export const disminuirCompra = (id) => {
@@ -18,6 +20,7 @@ export const disminuirCompra = (id) => {
     type: "DISMINUIR_CANTIDAD",
     payload: id,
   };
+  return action
 };
 
 export const eliminarCompra = (id) => {
@@ -25,4 +28,5 @@ export const eliminarCompra = (id) => {
     type: "ELIMINAR_PRODUCTO",
     payload: id,
   };
+  return action
 };

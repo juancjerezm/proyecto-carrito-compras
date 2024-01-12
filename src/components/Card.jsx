@@ -1,5 +1,6 @@
 import { useState } from "react";
 import "../styles/card.css";
+import { limitarTexto } from "../utils/limiteTexto";
 
 export const Card = ({
   imagen,
@@ -10,6 +11,7 @@ export const Card = ({
   handleQuitar,
   handleAumentar,
   handleDisminuir,
+  numeroMaxPalabras,
 }) => {
   const [added, setAdded] = useState(false);
   const setAgregar = () => {
@@ -22,13 +24,21 @@ export const Card = ({
     setAdded(false);
   };
 
+  const descripcionRecortada = limitarTexto(
+    descripcion,
+    numeroMaxPalabras || 15
+  );
+
   return (
     <div className="tarjeta">
       <img src={imagen} alt={titulo} className="tarjeta-imagen" />
       <div className="tarjeta-contenido">
-        <h2 className="tarjeta-titulo">{titulo}</h2>
-        <p className="tarjeta-descripcion">{descripcion}</p>
+        <h3 className="tarjeta-titulo">{titulo}</h3>
+        <p className="tarjeta-descripcion">{descripcionRecortada}</p>
         <p className="tarjeta-precio">{precio}</p>
+      </div>
+      <>
+        {" "}
         {added ? (
           <button type="button" className="boton-quitar" onClick={setQuitar}>
             Quitar del Carrito
@@ -38,7 +48,7 @@ export const Card = ({
             Agregar al carrito
           </button>
         )}
-      </div>
+      </>
     </div>
   );
 };
